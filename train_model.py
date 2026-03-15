@@ -12,20 +12,26 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import RandomUnderSampler
 import tensorflow as tf
-from tensorflow.keras.models import Model, Sequential
-from tensorflow.keras.layers import (Dense, Dropout, Embedding, Flatten, Input,
+from keras.models import Model, Sequential
+from keras.layers import (Dense, Dropout, Embedding, Flatten, Input,
                                      Concatenate, BatchNormalization, LSTM)
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.utils import to_categorical
-from tensorflow.keras.callbacks import (EarlyStopping, ReduceLROnPlateau,
+import keras
+print("ker",keras.__version__)
+from keras_nlp.tokenizers import WordTokenizer
+from keras.src.preprocessing.text import Tokenizer
+# 替换原代码：from keras.preprocessing.text import Tokenizer
+#from tensorflow.keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
+from keras.utils import to_categorical
+from keras.callbacks import (EarlyStopping, ReduceLROnPlateau,
                                         ModelCheckpoint)
-from tensorflow.keras.regularizers import l2
-from tensorflow.keras.optimizers import Adam
+from keras.regularizers import l2
+from keras.optimizers import Adam
+
 
 # ======================== 配置参数（优化后） ========================
 CONFIG = {
-    'EXCEL_FILE': '正确组.xlsx',
+    'EXCEL_FILE': 'ACCA1E30.xlsx',
     'MAX_SEQ_LEN': 20,  # 增加序列长度，保留更多文本信息
     'VOCAB_SIZE': 2000,  # 扩大词汇表
     'EPOCHS': 80,  # 增加训练轮数（配合早停）
