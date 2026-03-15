@@ -16,7 +16,7 @@ python.exe -m pip install --upgrade pip -i https://mirrors.aliyun.com/pypi/simpl
 
 :: 2. 安装TensorFlow
 echo 📦 安装TensorFlow...
-pip install tensorflow==2.19.1 -i https://mirrors.aliyun.com/pypi/simple/ --disable-pip-version-check
+pip install tensorflow==2.17.0 -i https://mirrors.aliyun.com/pypi/simple/ --disable-pip-version-check
 
 :: 3. 解决protobuf冲突（关键！）
 echo 🛠️ 修复依赖冲突...
